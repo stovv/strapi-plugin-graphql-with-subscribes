@@ -1,5 +1,5 @@
 {
-  "name": "plugin-graphql-with-subscribes",
+  "name": "strapi-plugin-graphql-with-subscribes",
   "version": "3.6.8",
   "description": "Adds GraphQL endpoint with default API methods.",
   "strapi": {
