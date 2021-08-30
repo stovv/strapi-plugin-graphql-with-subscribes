@@ -10,12 +10,12 @@ To learn more about GraphQL in Strapi [visit documentation](https://strapi.io/do
 
 # Subscribers configuration
 
-Create /plugins/graphql/config/schema.graphql.js
+Create `/extensions/graphql/config/schema.graphql.js` file
 And add Subscribers as example
 ```js
 module.exports = {
     subscription: `
-    onProjectUpdated(id: ID!): Project
+    onProjectUpdated(id: ID!): Post
   `,
     resolver: {
         Subscription: {
