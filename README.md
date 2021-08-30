@@ -1,5 +1,7 @@
 # Strapi GraphQL with Subscriptions
 
+Thanks [@fakedob](https://github.com/fakedo) and [@flaki](https://github.com/flaki) !
+
 > Based on [this pull request](https://github.com/strapi/strapi/pull/6789/) by [@fakedob](https://github.com/fakedob),
 > ported to Strapi 3.6.8.
 
