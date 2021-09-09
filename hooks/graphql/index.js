@@ -12,7 +12,7 @@ const { graphqlUploadKoa } = require('graphql-upload');
 const loadConfigs = require('./load-config');
 
 const { SubscriptionServer } = require('subscriptions-transport-ws');
-const { execute, subscribe } = require('graphql'); 
+const { execute, subscribe } = require('graphql');
 
 const attachMetadataToResolvers = (schema, { api, plugin }) => {
   const { resolver = {} } = schema;
@@ -193,6 +193,8 @@ function setupGraphqlSubs(server) {
         const populate = strapi.plugins['users-permissions'].models.user.associations
           .filter(ast => ast.autoPopulate !== false)
           .map(ast => ast.alias);
+
+        console.log(strapi.plugins['users-permissions'].services.user);
 
         let user = await strapi.plugins['users-permissions'].services.user.findOne(
           { id },
