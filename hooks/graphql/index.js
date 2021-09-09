@@ -175,6 +175,8 @@ function setupGraphqlSubs(server) {
         };
 
         strapi.plugins.graphql.services['data-loaders'].initializeLoader();
+        console.log('INITIALIZATION');
+        console.log(strapi.plugins['users-permissions'].services.user);
 
         try {
           let token =
@@ -193,8 +195,6 @@ function setupGraphqlSubs(server) {
         const populate = strapi.plugins['users-permissions'].models.user.associations
           .filter(ast => ast.autoPopulate !== false)
           .map(ast => ast.alias);
-
-        console.log(strapi.plugins['users-permissions'].services.user);
 
         let user = await strapi.plugins['users-permissions'].services.user.findOne(
           { id },
