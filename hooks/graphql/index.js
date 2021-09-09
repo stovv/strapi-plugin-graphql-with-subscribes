@@ -12,7 +12,7 @@ const { graphqlUploadKoa } = require('graphql-upload');
 const loadConfigs = require('./load-config');
 
 const { SubscriptionServer } = require('subscriptions-transport-ws');
-const { execute, subscribe } = require('graphql'); 
+const { execute, subscribe } = require('graphql');
 
 const attachMetadataToResolvers = (schema, { api, plugin }) => {
   const { resolver = {} } = schema;
@@ -175,7 +175,6 @@ function setupGraphqlSubs(server) {
         };
 
         strapi.plugins.graphql.services['data-loaders'].initializeLoader();
-
         try {
           let token =
             connectionParams.authToken || connectionParams.Authorization.split(' ')[1];
@@ -194,10 +193,7 @@ function setupGraphqlSubs(server) {
           .filter(ast => ast.autoPopulate !== false)
           .map(ast => ast.alias);
 
-        let user = await strapi.plugins['users-permissions'].services.user.findOne(
-          { id },
-          populate
-        );
+        let user = await strapi.query("user", "users-permissions").findOne({id}, populate);
         user.id = user.id ? user.id : user._id.toString();
 
         webSocket.user = user;
